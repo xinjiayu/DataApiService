@@ -1,0 +1,18 @@
+# 应用系统设置
+[setting]
+    logPath = "./logs"
+    port = "8199"
+
+# 数据库连接
+[database]
+    [[database.default]]
+        host = "127.0.0.1"
+        port = "3306"
+        user = "root"
+        pass = "123456"
+        name = "neucom2019"
+        type = "mysql"
+        max-idle     = "10"
+        max-open     = "50"
+        max-lifetime = "5"
+        debug = "true"
