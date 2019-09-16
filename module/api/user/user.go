@@ -4,10 +4,10 @@ import (
 	"DataApiService/library/response"
 	s_user "DataApiService/module/service/user"
 
-	"github.com/gogf/gf/g/os/glog"
+	"github.com/gogf/gf/net/ghttp"
+	"github.com/gogf/gf/util/gvalid"
 
-	"github.com/gogf/gf/g/net/ghttp"
-	"github.com/gogf/gf/g/util/gvalid"
+	"github.com/gogf/gf/os/glog"
 )
 
 // 用户API管理对象

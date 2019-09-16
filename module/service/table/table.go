@@ -1,10 +1,9 @@
 package table
 
 import (
-	"github.com/gogf/gf/g"
-	"github.com/gogf/gf/g/database/gdb"
-	"github.com/gogf/gf/g/os/glog"
-	"github.com/gogf/gf/g/util/gconv"
+	"github.com/gogf/gf/database/gdb"
+	"github.com/gogf/gf/frame/g"
+	"github.com/gogf/gf/os/glog"
 )
 
 var (
@@ -47,26 +46,7 @@ func GetDataList(tablename, field, keyword string, page, limit int) (gdb.Result,
 
 }
 
-var TableInfo g.MapStrStr
+func GetTableCount(tablename string) (int, error) {
+	return g.DB().Table(tablename).Count()
 
-func GetTableInfo(tablename string) {
-
-}
-
-// GetAllTableInfo 获取所有表信息
-func GetAllTableInfo(dbname string) {
-
-	r, err := g.DB().Table("INFORMATION_SCHEMA.TABLES").Fields(
-		"table_name as name,table_comment as comment").Where(
-		"table_schema = ?", dbname).Select()
-	if err != nil {
-		glog.Error("gstart tables error", err)
-	} else {
-		TableInfo = g.MapStrStr{}
-		list := r.ToList()
-		for _, value := range list {
-			TableInfo[gconv.String(value["name"])] = gconv.String(value["comment"])
-		}
-		glog.Info("gstart table info finish", TableInfo)
-	}
 }

@@ -10,6 +10,10 @@ MySql数据库的API服务
 支持基于JWT的用户验证
 
 
+##安装
+
+DataApiService代理是跨平台的，它支持Linux、Unix、Mac OS和Windows。DataApiService可以部署在x86_64架构服务器和ARM设备上。
+
 ##源码编译
 
 ```bash

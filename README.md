@@ -9,6 +9,12 @@ Support data query, using json output
 
 Support for JWT based user authentication
 
+##Installation
+
+The DataApiService broker is cross-platform, which supports Linux, Unix, Mac OS and Windows. It means DataApiService can be deployed on x86_64 architecture servers and ARM devices.
+
+Download the binary package for your platform from [here](https://emqx.io/downloads).
+
 
 
 ##Build From Source

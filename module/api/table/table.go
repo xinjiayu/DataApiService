@@ -13,8 +13,9 @@ import (
 	"DataApiService/library/response"
 	s_table "DataApiService/module/service/table"
 
-	"github.com/gogf/gf/g/net/ghttp"
-	"github.com/gogf/gf/g/os/glog"
+	"github.com/gogf/gf/net/ghttp"
+
+	"github.com/gogf/gf/os/glog"
 )
 
 // Controller 控制器
@@ -83,9 +84,15 @@ func (ac *Controller) Patch(r *ghttp.Request) {
 	response.Json(r, 0, "RESTFul HTTP Method PATCH")
 }
 
-func (ac *Controller) Info(r *ghttp.Request) {
+// Count 获取数据表的记录总数
+func (ac *Controller) Count(r *ghttp.Request) {
 	tableName := r.GetString("tablename")
-	s_table.GetTableInfo(tableName)
+	c, err := s_table.GetTableCount(tableName)
+
+	if err != nil {
+		response.Json(r, 1, "数据表："+tableName, err)
+	}
+	response.Json(r, 0, "数据表："+tableName, c)
 
 }
 
